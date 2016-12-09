@@ -14,10 +14,10 @@ function layer:__init(opt)
     self.model = nn.SpatialConvolutionMM(self.inDim, self.outDim, self.kSize, self.kSize)
     self.weights, self.gradWeights = self.model:getParameters()
     self.pool = nn.SpatialMaxPooling(5, 5, 3, 3)
+    -- you might want to choose the optimal pooling size for different tasks
     self.lambda = -0.00001
     self.beta = 0.00001
-    self.beta = 0.0
-    self.lambda = 0.0000
+    -- you might want to try different lambda and beta value
     self.mulTable = nn.CMulTable()
     self.weight = self.model.weight
 
